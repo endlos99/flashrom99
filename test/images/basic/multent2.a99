@@ -1,0 +1,96 @@
+* image with multiple entries
+
+ws:
+       equ  >83e0
+ws_r0lb:
+       equ  ws + 1
+ws_r1:
+       equ  ws + 2
+
+
+       aorg >6000
+
+       data >aa01
+       data >0000
+       data >0000
+       data entry1
+       data >0000
+       data >0000
+       data 0
+       data 0
+
+main1:
+       limi 0
+       li   r1, entry1
+       jmp  main
+main2:
+       limi 0
+       li   r1, entry2
+       jmp  main
+main3:
+       limi 0
+       li   r1, entry3
+       jmp  main
+main4:
+       limi 0
+       li   r1, entry4
+       jmp  main
+main5:
+       limi 0
+       li   r1, entry5
+       jmp  main
+main6:
+       limi 0
+       li   r1, entry6
+       jmp  main
+
+main:
+       li   r0, 2
+       inct r1
+       inct r1
+       inc  r1
+       li   r2, 20
+       bl   @vmbw
+
+       limi 2
+       jmp  $
+
+       copy "vmbw.a99"
+
+entry1:
+       data entry2
+       data main1
+       byte 20
+       text 'ENTRY #12 ..........'
+
+entry2:
+       data entry6
+       data main2
+       byte 20
+       text 'ENTRY #22 ..........'
+
+entry3:
+       data entry5
+       data main3
+       byte 20
+       text 'ENTRY #32 ..........'
+
+entry4:
+       data 0
+       data main4
+       byte 20
+       text 'ENTRY #42 ..........'
+
+entry5:
+       data entry4
+       data main5
+       byte 20
+       text 'ENTRY #52 ..........'
+
+entry6:
+       data entry3
+       data main6
+       byte 20
+       text 'ENTRY #66 ..........'
+
+       end

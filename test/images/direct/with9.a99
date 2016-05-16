@@ -1,0 +1,118 @@
+* image with 8 entries
+
+ws:
+       equ  >83e0
+ws_r0lb:
+       equ  ws + 1
+ws_r1:
+       equ  ws + 2
+
+
+       aorg >6000
+
+       data >aa01
+       data >0000
+       data >0000
+       data entry1
+       data >0000
+       data >0000
+       data 0
+       data 0
+
+entry1:
+       data entry2
+       data main1
+       byte 7
+       text 'ITEM #1'
+entry2:
+       data entry3
+       data main2
+       byte 7
+       text 'ITEM #2'
+entry3:
+       data entry4
+       data main3
+       byte 7
+       text 'ITEM #3'
+entry4:
+       data entry5
+       data main4
+       byte 7
+       text 'ITEM #4'
+entry5:
+       data entry6
+       data main5
+       byte 7
+       text 'ITEM #5'
+entry6:
+       data entry7
+       data main6
+       byte 7
+       text 'ITEM #6'
+entry7:
+       data entry8
+       data main7
+       byte 7
+       text 'ITEM #7'
+entry8:
+       data entry9
+       data main8
+       byte 7
+       text 'ITEM #8'
+entry9:
+       data 0
+       data main9
+       byte 7
+       text 'ITEM #9'
+
+main:
+       li   r0, 2
+       inct r1
+       inct r1
+       inc  r1
+       li   r2, 7
+       bl   @vmbw
+
+       limi 2
+       jmp  $
+
+main1:
+       limi 0
+       li   r1, entry1
+       jmp  main
+main2:
+       limi 0
+       li   r1, entry2
+       jmp  main
+main3:
+       limi 0
+       li   r1, entry3
+       jmp  main
+main4:
+       limi 0
+       li   r1, entry4
+       jmp  main
+main5:
+       limi 0
+       li   r1, entry5
+       jmp  main
+main6:
+       limi 0
+       li   r1, entry6
+       jmp  main
+main7:
+       limi 0
+       li   r1, entry7
+       jmp  main
+main8:
+       limi 0
+       li   r1, entry8
+       jmp  main
+main9:
+       limi 0
+       li   r1, entry9
+       jmp  main
+
+       copy "vmbw.a99"
+       
+       end

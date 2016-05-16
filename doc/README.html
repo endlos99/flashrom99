@@ -1,0 +1,150 @@
+<style>
+body { font-family: 'Liberation Sans', Helvetica, Calibri, sans-serif; padding: 1em; margin: auto; max-width: 60em; background: #fefefe; }
+p, ul, ol, pre { margin: 1em 0; line-height: 1.3em; }
+pre { border: 1px solid #ccc; border-radius: 3px; overflow: auto; padding: 6px 10px; background-color: #eee; }
+code { border: 1px solid #ccc; border-radius: 3px; margin: 0 2px; padding: 0 2px; background-color: #eee; }
+pre > code { border: 0; margin: 0; padding: 0; }
+a, a:visited { color: #11a; text-decoration: none; }
+</style>
+<h1>FlashROM 99</h1>
+<p>The <em>TI 99/4A Flash ROM Cartridge</em>, or FlashROM 99 for short, is a cartridge
+for the TI 99/4A home computer that allows for running ROM cartridge images
+stored on an SD card.</p>
+<p><img alt="The FlashROM 99 Cartridge" src="flashrom99.jpg" /></p>
+<p>The FlashROM 99 supports ROM-only images of up to 32K that use the
+write-to-<code>&gt;60xx</code> bank switching scheme.  It will not work with programs
+using GROMs or CRU-based bank switching.  The cartridge does not require the
+Peripheral Expansion Box and runs on both PAL and NTSC consoles.</p>
+<p>The project homepage is hosted at <a href="https://endlos99.github.io/flashrom99">GitHub</a>.</p>
+<p>FlashROM 99 is released as Open Source Hardware under the
+<a href="http://www.ohwr.org/projects/cernohl/wiki">CERN OHL license</a> and the <a href="http://www.gnu.org/licenses/gpl.html">GNU GPL license</a>.  Both hardware design
+files and firmware sources are available on <a href="https://github.com/endlos99/flashrom99">GitHub</a>.</p>
+<h2>Using the FlashROM 99</h2>
+<p>Using the FlashROM 99 is simple and doesn't require and special hardware or
+software.</p>
+<p>To begin, copy up to 171 cartridge image files onto an SD or SDHC card.
+Switch off the TI 99 and plug in the FlashROM 99, then insert the SD card
+into the FlashROM 99.  Switch on the TI 99 and wait until the activity
+indicator on the FlashROM 99 is no longer lit.</p>
+<p>Press any key to bring up the TI menu screen.  You should see the list of
+images found on the SD card.  If the SD card contains more than 8 images, a
+<code>FLASHROM 99</code> entry is shown instead.  Selecting this entry starts an image
+browser where you can page through the list of available images with <code>,</code>,
+<code>.</code>, <code>SPACE</code>, and number keys.</p>
+<p><img alt="Image selection" src="selection.png" /></p>
+<p>Select the image you want to run.  The screen will show a loader animation
+while the image loads.  Once the image has been loaded, it will run
+automatically.  The SD card is now no longer required and may be removed.</p>
+<p>If only one image is found on the SD card, it is loaded immediately without
+the need to select it first.</p>
+<p>If you want to run a different program from the SD card, reset the TI 99 by
+pressing <code>FCTN-=</code> and then reset the FlashROM 99 by pushing the reset
+button.  If you do not reset the FlashROM 99, the TI menu will show only the
+previously selected image.  Alternatively, you can power cycle the console,
+which will reset both TI 99 and FlashROM 99.</p>
+<p>For detailed usage information please refer to the <a href="https://endlos99.github.io/flashrom99">FlashROM 99 homepage</a>.</p>
+<h2>Building the FlashROM 99</h2>
+<p>The <a href="https://github.com/endlos99/flashrom99">GitHub repository</a> contains all hardware design files and software
+sources required to build the FlashROM 99.</p>
+<h3>Hardware</h3>
+<p>To assemble the FlashROM 99 you need the following components:</p>
+<ul>
+<li>1x FlashROM 99 board</li>
+<li>1x ATmega 8515 (either 8515-16 or 8515L-8)</li>
+<li>1x 62256 32K SRAM (any speed rating)</li>
+<li>1x 74HCT377 (LS may also work, but untested)</li>
+<li>3x 74HCT541 (LS may also work, but untested)</li>
+<li>6x 100 nF capacitors (e.g., multi-layer ceramic X7R, no electrolytic!)</li>
+<li>1x 1 nF capacitor (e.g., multi-layer ceramic X7R, no electrolytic!)</li>
+<li>1x 68 Ohm resistor</li>
+<li>1x 470 Ohm resistor</li>
+<li>1x 10 kOhm resistor</li>
+<li>1x LED (e.g., 5 mm red or yellow)</li>
+<li>1x micro push button</li>
+<li>1x SD card module</li>
+</ul>
+<p>The FlashROM 99 board was designed with <a href="http://kicad-pcb.org">KiCad</a>, a cross platform and
+open source electronics design automation suite.  The design files are
+stored in <code>pcb/</code>.</p>
+<p>To simplify the board layout, the design uses an inexpensive SD module that
+is readily available online.  Searching for <code>SD card Arduino</code> should give
+you plenty of hits, including Amazon, ebay, and Pollin.  Make sure to pick a
+module that matches the pin-out of the reference module shown below. Note
+that the 3.3V input is not used, so any substitutes must be powered by 5V.</p>
+<p>You can use any kind of single color LED, but you may have to adjust the 470
+Ohm resistor if you choose anything other than red or yellow.</p>
+<p>The push button is used to reset the board and will be pushed frequently.
+You might choose an angled button if you prefer to push horizontally instead
+of vertically.  This will also put less stress on the cart connector.</p>
+<p>When assembling the board make sure to place all ICs properly oriented --
+some ICs are upside down!  On the board, the location of pin 1 is indicated
+by a small line in the IC outline.  Socketing the ATmega allows for future
+software updates.  It is best not to socket the 541s, however, as this will
+make inserting the assembled cart into the TI 99 more difficult.</p>
+<p><img alt="Parts Placement" src="placement.jpg" /></p>
+<p>The push button is best soldered to the top of the board so that the bottom
+area remains as smooth as possible.  After the button is soldered, put some
+insulating tape on its bottom contacts to avoid interference with the SD
+module.</p>
+<p><img alt="Assembly" src="assembly.jpg" /></p>
+<p>Insert the SD module from the bottom and solder either one row of connectors
+top so that the metal part of the module is flush with the board.  Some SD
+modules have a crooked connector, though, so that a small gap may remain.</p>
+<p>If you don't want to build the board yourself feel free to contact the
+developer for available sources.</p>
+<h3>Software</h3>
+<p>The software for the ATmega 8515 consists of two components.  The <code>avr/</code>
+folder contains the microcontroller logic for accessing the SD card, filling
+the SRAM chip, and controlling the TI bus.</p>
+<p>The <code>ti/</code> folder contains TI 99 assembly sources for the image menu and the
+image browser.  The assembled TMS 9900 machine code is embedded in the
+microcontroller code and loaded into RAM during operation.</p>
+<p>To build the software, you first need to assemble the menu and browser
+program with <a href="https://endlos99.github.io/xdt99"><code>xas99</code></a> and convert the generated machine code into C
+code:</p>
+<pre><code>$ cd ti/
+$ xas99.py -b -R -I &lt;xdt99&gt;/lib menu.a99
+$ mkmenu.py
+</code></pre>
+<p>Now you can compile the microcontroller code in <code>avr/</code>.  The folder contains
+a <code>Makefile</code> for <code>avr-gcc</code> that will make compilation trivial.</p>
+<pre><code>$ cd avr/
+$ make
+</code></pre>
+<p>As an option, you can enable multi-file functionality in the <code>Makefile</code>.
+This feature, however, will severely extend the scan time for SD cards with
+many images.  Only enable multi-file if you plan to use the FlashROM 99 with
+no more than about two dozenzs of images per SD card.  To compile with
+multi-file, you may have to disable FAT16 support in <code>avr/lib/pffconf.h</code> in
+case the executable gets too large.</p>
+<p>The build yields a <code>.hex</code> file that you can flash to the ATmega 8515 using
+<a href="http://www.nongnu.org/avrdude/"><code>avrdude</code></a> or your programmer of choice:</p>
+<pre><code>$ avrdude -p atmega8515 -P /dev/ttyACM0 -c stk500 -U flash:w:flashrom99.hex
+</code></pre>
+<p>Additionally, you need to program the lower fuse bits of the 8515 so that it
+runs at 8 MHz:</p>
+<pre><code>$ avrdude -p atmega8515 -P /dev/ttyACM0 -c stk500 -U lfuse:w:0xe4:m
+</code></pre>
+<p>If you're using a different tool chain make sure to set <code>CKSEL3..0</code> in the
+lower fuse byte to <code>0100</code>.  (Note that <code>0</code> means "programmed", and <code>1</code> means
+"unprogrammed").  You can verfify that you're running at the right clock
+speed by resetting the FlashROM 99 with no SD card inserted: The LED should
+blink about once per second.</p>
+<p>Finally, make sure that the bootloader is disabled by checking if higher
+fuse bits <code>BOOTSZ1</code>, <code>BOOTSZ0</code>, and <code>BOOTRSET</code> are all set to <code>1</code>.  This
+should be the default for new 8515s.</p>
+<p>In the end, the lower, higher, and extended fuse bytes should have values
+<code>E4</code>, <code>FF</code>, and <code>D9</code>, respectively.</p>
+<h2>About the Project</h2>
+<p>The TI 99/4A Flash ROM Cartridge is Open Source Hardware released under the
+<a href="http://www.ohwr.org/projects/cernohl/wiki">CERN OHL license</a>, in the hope that TI 99 enthusiasts may find it useful.
+Software components are released under the <a href="http://www.gnu.org/licenses/gpl.html">GNU GPL license</a>.</p>
+<p>The hardware was designed with the open source electronics design automation
+suite <a href="http://kicad-pcb.org">KiCad</a>.  The microcontroller code uses a modified version of the
+<a href="http://elm-chan.org/fsw/ff/00index_p.html">Petit FatFs</a> library.  Thanks go to Jon Guidry (acadiel) of <code>hexbus.com</code>
+for designing the original bank switching circuitry for the first TI
+multi-carts.</p>
+<p>Contributions to both hardware and software are very welcome!  Please email
+feedback, support questions, inquiries for parts, and bug reports to the
+developer at <a href="&#109;&#97;&#105;&#108;&#116;&#111;&#58;&#114;&#64;&#48;&#120;&#48;&#49;&#46;&#100;&#101;">&#114;&#64;&#48;&#120;&#48;&#49;&#46;&#100;&#101;</a>.  Discussions about the FlashROM 99 happen over at
+<a href="http://atariage.com/forums/topic/250540-flash-rom-cart">AtariAge</a>.</p>

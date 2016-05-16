@@ -1,0 +1,130 @@
+* FlashROM 99: sample menu entries for testing
+
+       save >6000, >8000
+       aorg image_data
+       
+       ; menu: 36 bytes per entry, 8 entries
+       
+       text 'SAMPLE_0'        ; basename (8 bytes)
+       data >01, sample_0
+menu_0:
+       data menu_1            ; next entry
+       data entry_2           ; loader
+       byte 8                 ; entry name length
+       text 'SAMPLE 3'        ; max. 23 chars
+       bss  19 - 8
+
+       text 'SAMPLE_1'
+       data >01, sample_1
+menu_1:
+       data menu_2
+       data entry_3
+       byte 8
+       text 'SAMPLE 2'
+       bss  19 - 8
+       
+       text 'SAMPLE_2'
+       data >01, sample_2
+menu_2:
+       data menu_3
+       data entry_4
+       byte 8
+       text 'SAMPLE 1'
+       bss  19 - 8
+       
+       text 'SAMPLE_3'
+       data >ff, sample_3
+menu_3:
+       data menu_4
+       data entry_5
+       byte 11
+       text 'INF LOADING'
+       bss  19 - 11
+
+       text 'SAMPLE_4'
+       data >01, sample_4
+menu_4:
+       data menu_5
+       data entry_6
+       byte 9
+       text '32K IMAGE'
+       bss  19 - 9
+
+       text 'SAMPLE_5'
+       data >01, sample_5
+menu_5:
+       data menu_6
+       data entry_7
+       byte 9
+       text '16K IMAGE'
+       bss  19 - 9
+
+       text 'SAMPLE_6'
+       data >01, sample_6
+menu_6:
+       data menu_more
+       data entry_8
+       byte 8
+       text '8K IMAGE'
+       bss  19 - 8
+
+       bss 12
+menu_more:
+       data 0
+       data browser
+       byte 13
+       text 'IMAGE BROWSER'
+       bss  19 - 13
+       
+       ; browser: 32 bytes per entry
+
+       copy "sample_b.a99"    ; entries for browser
+
+sample_0:
+       movb @const+1, @ws_r1
+       jmp  sample_main
+sample_1:
+       movb @const+3, @ws_r1
+       jmp  sample_main
+sample_2:
+       movb @const+5, @ws_r1
+       jmp  sample_main
+sample_3:
+       movb @const+7, @ws_r1
+       jmp  sample_main
+sample_4:
+       movb @const+9, @ws_r1
+       jmp  sample_main
+sample_5:
+       movb @const+11, @ws_r1
+       jmp  sample_main
+sample_6:
+       movb @const+13, @ws_r1
+       jmp  sample_main
+
+sample_main:
+       ; display selected image index
+       limi 0
+       lwpi ws
+       li   r0, >170
+       srl  r1, 5
+       ai   r1, '0 '
+       bl   @vsbw
+       jmp  $
+
+sample_browser:
+       ; display filename sent
+       limi 0
+       lwpi ws
+       li   r0, 23 * 32 + 2
+       li   r1, sb_text
+       li   r2, 8
+       ci   r7, sample_browser
+       jeq  !
+       li   r1, sb_err
+!      bl   @vmbw
+       jmp  $
+sb_text:
+       text 'LIFTOFF!'
+sb_err:
+       text 'JUMP ERR'

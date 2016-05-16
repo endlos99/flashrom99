@@ -1,0 +1,23 @@
+* image to ignore
+
+       aorg >6000
+
+       data >aa01
+       data >0000
+       data >0000
+       data entry1
+       data >0000
+       data >0000
+       data 0
+       data 0
+
+entry1:
+       data 0
+       data main1
+       byte 17
+       text 'SHOULD BE IGNORED'
+
+main1:
+       blwp @0
+
+       end

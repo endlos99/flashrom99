@@ -1,0 +1,42 @@
+* run through entire address space
+
+ws:
+       equ  >8320
+ws_r0lb:
+       equ  ws + 1
+
+       aorg >6000
+
+       data >aa01
+       data >0000
+       data >0000
+       data menu
+       data >0000
+       data >0000
+       data 0
+       data 0
+
+menu:
+       data 0
+       data start
+       byte 40
+text:
+       text 'A REALLY LONG PROGRAM NAME THAT WONT FIT'
+
+       even
+       
+start:
+       limi 0
+       lwpi ws
+       
+       li   r0, 320
+       li   r1, text
+       li   r2, 40
+       bl   @vmbw
+              
+       limi 2
+       jmp  $
+       
+       copy "vmbw.a99"
+       
+       end

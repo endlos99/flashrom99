@@ -1,0 +1,250 @@
+<style>
+body { font-family: 'Liberation Sans', Helvetica, Calibri, sans-serif; padding: 1em; margin: auto; max-width: 60em; background: #fefefe; }
+p, ul, ol, pre { margin: 1em 0; line-height: 1.3em; }
+pre { border: 1px solid #ccc; border-radius: 3px; overflow: auto; padding: 6px 10px; background-color: #eee; }
+code { border: 1px solid #ccc; border-radius: 3px; margin: 0 2px; padding: 0 2px; background-color: #eee; }
+pre > code { border: 0; margin: 0; padding: 0; }
+a, a:visited { color: #11a; text-decoration: none; }
+</style>
+<h1>FlashROM 99</h1>
+<p>The <em>TI 99/4A Flash ROM Cartridge</em>, or FlashROM 99 for short, is a cartridge
+for the TI 99/4A home computer that allows for running ROM cartridge images
+stored on an SD card.</p>
+<p><img alt="The FlashROM 99 Cartridge" src="flashrom99.jpg" /></p>
+<p>The FlashROM 99 supports ROM-only images of up to 32K that use the
+write-to-<code>&gt;60xx</code> bank switching scheme.  It will not work with programs
+using GROMs or CRU-based bank switching.  The cartridge does not require the
+Peripheral Expansion Box and runs on both PAL and NTSC consoles.</p>
+<p>FlashROM 99 is released as Open Source Hardware under the
+<a href="http://www.ohwr.org/projects/cernohl/wiki">CERN OHL license</a> and the <a href="http://www.gnu.org/licenses/gpl.html">GNU GPL license</a>.  Both hardware design
+files and firmware sources are available on <a href="https://github.com/endlos99/flashrom99">GitHub</a>.</p>
+<p>The project homepage is hosted at <a href="https://endlos99.github.io/flashrom99">GitHub</a>.</p>
+<h2>How to Start with the FlashROM 99</h2>
+<p>Using the FlashROM 99 is simple and doesn't require and special hardware or
+software.</p>
+<p>To begin, copy up to 171 cartridge image files onto an SD or SDHC card.
+Switch off the TI 99 and plug in the FlashROM 99, then insert the SD card
+into the FlashROM 99.  Switch on the TI 99 and wait until the activity
+indicator on the FlashROM 99 is no longer lit.</p>
+<p>Press any key to bring up the TI menu screen.  You should see the list of
+images found on the SD card.  If the SD card contains more than 8 images, a
+<code>FLASHROM 99</code> entry is shown instead.  Selecting this entry starts an image
+browser where you can page through the list of available images with <code>,</code>,
+<code>.</code>, <code>SPACE</code>, and number keys.</p>
+<p><img alt="Image selection" src="selection.png" /></p>
+<p>Select the image you want to run.  The screen will show a loader animation
+while the image loads.  Once the image has been loaded, it will run
+automatically.  The SD card is now no longer required and may be removed.</p>
+<p>If only one image is found on the SD card, it is loaded immediately without
+the need to select it first.</p>
+<p>If you want to run a different program from the SD card, reset the TI 99 by
+pressing <code>FCTN-=</code> and then reset the FlashROM 99 by pushing the reset
+button.  If you do not reset the FlashROM 99, the TI menu will show only the
+previously selected image.  Alternatively, you can power cycle the console,
+which will reset both TI 99 and FlashROM 99.</p>
+<h2>How to Use the FlashROM 99</h2>
+<p>The following sections provide a detailed look at the FlashROM 99 and
+explain all of its features.</p>
+<h3>Images</h3>
+<p>A cartridge image is a binary file containing raw machine code that is
+loaded verbatim into the TI 99 cartridge memory.  Many programs are
+distributed as image files, and typically have a <code>.bin</code> extension.</p>
+<p>An additional source for images are cartridge files for emulators.  The MESS
+emulator, for example, uses <code>.rpk</code> files, which are ordinary ZIP archives
+with an unconventional extension.  Images files for Classic 99 can be used
+as-is.</p>
+<p>Finally, many assemblers such as the <a href="https://endlos99.github.io/xdt99"><code>xas99</code> cross-assembler</a> can
+generate images.  Note that files generated for Editor/Assembler Option 5
+<em>cannot</em> be used!</p>
+<p>Images are single files or multiple files with a common root name:</p>
+<pre><code>helloc.bin
+hellod.bin
+</code></pre>
+<p>If you also see a file ending in <code>G</code></p>
+<pre><code>hellog.bin
+</code></pre>
+<p>then the image is using GROMs and cannot be used for the FlashROM 99.</p>
+<p>The FlashROM 99 uses single-file images of up to 32K that must be
+"non-inverted", which is the default until noted otherwise by the creator.
+If you have an inverted image, you can use the Python script <code>invert.py</code> in
+the <code>lib/</code> folder: An inverted inverted image is a non-inverted image.</p>
+<p>Unfortunately, there's no way to determine if an image is inverted or not --
+you'll have to try it.  Usually, images ending in <code>8</code> are non-inverted, and
+images ending in <code>9</code> are inverted.  If an image crashes the TI 99, invert it
+and see if that works instead.</p>
+<p>To use multi-file images, you need to concatenate the individual files into
+a single file:</p>
+<pre><code>$ cat hello?.bin &gt; hello.bin                        # Linux and Mac
+c:&gt; copy /b helloc.bin + /b hellod.bin hello.bin    # Windows
+</code></pre>
+<p>Note that the FlashROM 99 can also be built with multi-file support, but as
+this deteriorates the startup time this option is not enabled by default.</p>
+<p>Images may have more than one program entry to select.  The FlashROM 99
+lists all entries of all images.</p>
+<h3>SD Cards</h3>
+<p>The FlashROM 99 supports both SD and SDHC cards of class 4 or higher.
+Slower and unrated cards may also work, just try and see.</p>
+<p>Cards must be formatted with the FAT16 or FAT32 filesystem.  FAT16 is the
+default for new SD cards of up to 2 GB, and FAT32 is the default for new
+SDHC cards of 4 GB and up.</p>
+<p>Note that some cards seem to have a difficult personality.  For SD cards, it
+may help to use FAT32 instead of the FAT16 default.  If you absolutely
+cannot get a particular SD/SDHC card to work, just move on and use a
+different one.</p>
+<p>Image files can be dragged and dropped as-is into the root folder of the SD
+card.  Filenames must end in <code>.bin</code>, but case is ignored.  Files with other
+extensions may be present and are skipped.  For multi-file images, filenames
+must have at most 8 characters w/o extension due to filesystem limitations.</p>
+<p>The FlashROM 99 handles up to 171 image entries per SD card.  Additional
+images will be ignored.</p>
+<h3>Operation</h3>
+<p>The FlashROM 99 is always in one of two modes: <em>menu mode</em> or <em>image mode</em>.</p>
+<p>When powering up, or after pushing the reset button, the FlashROM 99 is in
+menu mode.  In this mode, the TI 99 menu screen shows the list of available
+images or the image browser.  Selecting an entry will load the selected
+image from the SD card and run it.  Once the image is running, the FlashROM
+99 switches to image mode.</p>
+<p>In image mode, the FlashROM 99 acts like a ROM cartridge containing the
+selected image only.  In this mode, the TI 99 menu screen shows the entries
+of the selected image.  Pressing <code>FCTN-=</code> will warm reset the console
+without affecting the currently stored image.  The only way to return to
+menu mode is to push the FlashROM 99 reset button, to power cycle the
+console, or to remove and re-plug the FlashROM 99 cartridge.</p>
+<p>Note that the SD card is scanned only once in menu mode.  If you swap SD
+cards you need to push the reset button to re-read the SD card.  Once in
+image mode, the SD card is no longer needed and may be removed until you
+want to run a different image.</p>
+<p>If only one image is found on the SD card, then it is loaded immediately.
+In this case the FlashROM 99 skips menu mode and enters image mode directly.</p>
+<p>The activity indicator LED lights up whenever the FlashROM 99 is busy
+reading the SD card.  During this time, the entire cartridge is "offline" so
+that the TI 99 cannot detect that a cartridge is plugged in.  You may still
+operate the console, e.g., work with TI BASIC, while the LED is on, but
+depending on your actions you may crash the TI 99.</p>
+<p>To summarize, these simple rules of thumb will make sure that you run the
+FlashROM 99 without issues:</p>
+<ul>
+<li>After inserting an SD card, push the FlashROM 99 reset button or power
+  cycle the console.</li>
+<li>Only push the reset button when the TI 99 title screen is shown.</li>
+<li>Leave both TI 99 and SD card alone whenever the LED is lit and not
+  blinking.</li>
+</ul>
+<p>It is not possible to damage the FlashROM 99 by incorrect operation,
+assuming that shorting contacts or smashing components is way beyond
+incorrect operation.</p>
+<h3>Compatibility</h3>
+<p>In general, all cartridge dumps with a compatible banking scheme should work
+fine on the FlashROM 99.  Some images converted from other formats, in
+particular many modern homebrew programs, may also require a 32K RAM
+expansion.</p>
+<p>Some programs, however, don't expect to be started by something other than
+the TI 99 boot menu, or have difficulties to deal with the remnants of
+previously run programs left over by a warm reset.  In rare cases, this may
+lead to graphical glitches or other unexpected behavior.</p>
+<p>Please refer to the troubleshooting section for a list of games known with
+issues.</p>
+<p>If you find additional images that doesn't work as intended on the FlashROM
+99, please send a note to the developer at <a href="&#109;&#97;&#105;&#108;&#116;&#111;&#58;&#114;&#64;&#48;&#120;&#48;&#49;&#46;&#100;&#101;">&#114;&#64;&#48;&#120;&#48;&#49;&#46;&#100;&#101;</a>, maybe the issue can
+be fixed with a software update for the 8515.</p>
+<h2>How the FlashROM 99 Works</h2>
+<p>The FlashROM 99 uses a 32K SRAM chip to store a cartridge image of up to
+that size.  The TI 99 addresses the SRAM just like it would address a
+cartridge ROM chip.</p>
+<p>The 377 register maps 8K banks of the 32K SRAM into the cartridge space
+<code>&gt;6000</code> through <code>&gt;7FFF</code>.  The bank switching design used here was originally
+developed by Jon Guidry (acadiel) for the <a href="http://www.hexbus.com/TI-99_4A_Home_Computer_Page/Hardware_Projects.html">16K multi-cart</a> and has since
+been used in many homebrew projects.</p>
+<p>The ATmega 8515 microcontroller reads the SD card and writes first the menu
+and browser code and then the selected image into the SRAM chip.  The
+microcontroller code uses a modified version of the <a href="http://elm-chan.org/fsw/ff/00index_p.html">Petit FatFs</a> library
+to make sense of the FAT16/FAT32 filesystems used by SD cards.</p>
+<p>Whenever the 8515 is active, the TI 99 must not access the SRAM chip, or the
+TI 99 will crash, and either one might get damaged.  Thus, three 541 line
+drivers isolate the FlashROM 99 from the cartridge bus whenever the ATmega
+is writing to the SRAM.</p>
+<p>The 377 also buffers the serial one-way communication from the TI 99 to the
+FlashROM 99 that relays the image selection.  The <code>&gt;6800</code> address line
+transmits the bit data and the <code>&gt;7000</code> address line transmits the clock.
+Currently, 9 bytes of data are transferred, containing the filename of the
+selected image.</p>
+<p>While the image loads, the TI 99 reads ROM address <code>&gt;6000</code> continuously.
+When the cart if offline, this yields value <code>0000</code>, but as soon as the cart
+goes back online the TI 99 will see the GPL header <code>AAxx</code> and jump to the
+loaded image.</p>
+<h2>Troubleshooting the FlashROM 99</h2>
+<h4>The TI 99 title screen won't show.</h4>
+<p>The TI 99 detects the FlashROM 99, but it cannot access the RAM contents.</p>
+<p>Check if the 541s are mounted correctly -- two are upside down.  Also look
+for bad solder joints, in particular for the 541s and the 8515.  Finally,
+verify that you flashed the software to the 8515 correctly.</p>
+<h4>The LED blinks.</h4>
+<p>If the LED starts blinking, the FlashROM 99 could not read some part of the
+SD card:</p>
+<ul>
+<li>1 blip: bad SD card reader, bad SD card, or wrong filesystem</li>
+<li>2 blips: corrupt filesystem</li>
+<li>3 blips: corrupt root directory</li>
+</ul>
+<p>Try re-formatting your SD card using FAT32, or try a different card.</p>
+<h4>No menu entries.</h4>
+<p>The TI 99 starts normally, but the menu shows only TI BASIC.</p>
+<p>If the LED doesn't turn on at least briefly when powering up or pushing
+reset, some contacts on the card or the 8515 may be bad.</p>
+<p>If the LED does light up, make sure that your SD card contains at least one
+valid image file, ending in <code>.bin</code> or <code>.BIN</code>, that is at most 32K big.  You
+can use the Python script <code>lib/mklcart.py</code> to generate an <code>.rpk</code> file to
+check any image file in MESS.</p>
+<h4>Programs crash.</h4>
+<p>The menu shows fine, but running some particular program crashes, either
+right away or after some using the program for some time.</p>
+<p>You may run an inverted image, an image requiring a GROM, an image with an
+incompatible bank switch scheme, or a "fragile" cartridge program.</p>
+<p>To fix an inverted image, use the <code>lib/invert.py</code> script.  Note that image
+files with 8K only cannot be inverted.</p>
+<p>A "fragile" program is a program that makes certain assumptions about the
+state of scratchpad RAM and VDP RAM when it starts.  Try loading the program
+directly to RAM by copying this image file as the only file on an SD card.
+This will provide the exact environment the program expects.</p>
+<p>If this doesn't help, the image may be incompatible.  Please send a note to
+the developer at <a href="&#109;&#97;&#105;&#108;&#116;&#111;&#58;&#114;&#64;&#48;&#120;&#48;&#49;&#46;&#100;&#101;">&#114;&#64;&#48;&#120;&#48;&#49;&#46;&#100;&#101;</a> for further analysis.</p>
+<h4>Programs don't work properly.</h4>
+<p>Some functionality of the program doesn't work as expected.</p>
+<p>Some games don't expect to be started by another program or to find the
+remnants of previously run programs.  This may lead to graphical glitches or
+other unexpected behavior.</p>
+<p>Try restarting the program by pressing <code>FCTN-=</code> and selecting it from the
+menu again to eliminate most issues.  Alternatively, put the image as the
+only image on the SD card so that it is loaded directly.</p>
+<p>If this doesn't help, please send a note to the developer at <a href="&#109;&#97;&#105;&#108;&#116;&#111;&#58;&#114;&#64;&#48;&#120;&#48;&#49;&#46;&#100;&#101;">&#114;&#64;&#48;&#120;&#48;&#49;&#46;&#100;&#101;</a> for
+further analysis.</p>
+<h4>Games with known issues.</h4>
+<p>These programs are know to have some flaws when run on the FlashROM 99:</p>
+<ul>
+<li>Console Writer: Input line shows dotted pattern.</li>
+<li>Miner 2049er: Crashes spectacularly.  Freezes when loaded directly.</li>
+<li>Sudoku: Crashes, also when loaded directly.</li>
+</ul>
+<p>Note that for now, this list refers to particular images tested.  There
+might be different images of those programs that work.</p>
+<h2>Where to Get the FlashROM 99</h2>
+<p>The <a href="https://github.com/endlos99/flashrom99">GitHub repository</a> contains all hardware design files and software
+sources required to build the FlashROM 99 yourself.</p>
+<p>If you want to build a FlashROM 99, you can purchase a professionally made
+PCB board for €10 and a preprogrammed 8515 for €5 plus shipping and
+handling.  Alternatively, you can get a fully assembled FlashROM 99
+cartridge for €45 plus shipping and handling.  Please contact the developer
+at <a href="&#109;&#97;&#105;&#108;&#116;&#111;&#58;&#114;&#64;&#48;&#120;&#48;&#49;&#46;&#100;&#101;">&#114;&#64;&#48;&#120;&#48;&#49;&#46;&#100;&#101;</a> for further information.</p>
+<h2>About the Project</h2>
+<p>The TI 99/4A Flash ROM Cartridge is Open Source Hardware released under the
+<a href="http://www.ohwr.org/projects/cernohl/wiki">CERN OHL license</a>, in the hope that TI 99 enthusiasts may find it useful.
+Software components are released under the <a href="http://www.gnu.org/licenses/gpl.html">GNU GPL license</a>.</p>
+<p>The hardware was designed with the open source electronics design automation
+suite <a href="http://kicad-pcb.org">KiCad</a>.  The microcontroller code uses a modified version of the
+<a href="http://elm-chan.org/fsw/ff/00index_p.html">Petit FatFs</a> library.  Thanks go to Jon Guidry (acadiel) of <code>hexbus.com</code>
+for designing the original bank switching circuitry for the first TI
+multi-carts.</p>
+<p>Contributions to both hardware and software are welcome.  Please email
+feedback, support questions, inquiries for parts, and bug reports to the
+developer at <a href="&#109;&#97;&#105;&#108;&#116;&#111;&#58;&#114;&#64;&#48;&#120;&#48;&#49;&#46;&#100;&#101;">&#114;&#64;&#48;&#120;&#48;&#49;&#46;&#100;&#101;</a>.  Discussions about the FlashROM 99 happen over at
+<a href="http://atariage.com/forums/topic/250540-flash-rom-cart">AtariAge</a>.</p>

@@ -1,0 +1,685 @@
+
+       text 'PROG29  '
+       data >01, sample_browser
+       text 'SAMPLE PROGRAM #29  '
+    
+       text 'PROG167 '
+       data >01, sample_browser
+       text 'SAMPLE PROGRAM #167 '
+    
+       text 'PROG45  '
+       data >01, sample_browser
+       text 'SAMPLE PROGRAM #45  '
+    
+       text 'PROG9   '
+       data >01, sample_browser
+       text 'SAMPLE PROGRAM #9   '
+    
+       text 'PROG134 '
+       data >01, sample_browser
+       text 'SAMPLE PROGRAM #134 '
+    
+       text 'PROG114 '
+       data >01, sample_browser
+       text 'SAMPLE PROGRAM #114 '
+    
+       text 'PROG25  '
+       data >01, sample_browser
+       text 'SAMPLE PROGRAM #25  '
+    
+       text 'PROG120 '
+       data >01, sample_browser
+       text 'SAMPLE PROGRAM #120 '
+    
+       text 'PROG63  '
+       data >01, sample_browser
+       text 'SAMPLE PROGRAM #63  '
+    
+       text 'PROG17  '
+       data >01, sample_browser
+       text 'SAMPLE PROGRAM #17  '
+    
+       text 'PROG15  '
+       data >01, sample_browser
+       text 'SAMPLE PROGRAM #15  '
+    
+       text 'PROG67  '
+       data >01, sample_browser
+       text 'SAMPLE PROGRAM #67  '
+    
+       text 'PROG50  '
+       data >01, sample_browser
+       text 'SAMPLE PROGRAM #50  '
+    
+       text 'PROG58  '
+       data >01, sample_browser
+       text 'SAMPLE PROGRAM #58  '
+    
+       text 'PROG54  '
+       data >01, sample_browser
+       text 'SAMPLE PROGRAM #54  '
+    
+       text 'PROG166 '
+       data >01, sample_browser
+       text 'SAMPLE PROGRAM #166 '
+    
+       text 'PROG110 '
+       data >01, sample_browser
+       text 'SAMPLE PROGRAM #110 '
+    
+       text 'PROG92  '
+       data >01, sample_browser
+       text 'SAMPLE PROGRAM #92  '
+    
+       text 'PROG57  '
+       data >01, sample_browser
+       text 'SAMPLE PROGRAM #57  '
+    
+       text 'PROG36  '
+       data >01, sample_browser
+       text 'SAMPLE PROGRAM #36  '
+    
+       text 'PROG140 '
+       data >01, sample_browser
+       text 'SAMPLE PROGRAM #140 '
+    
+       text 'PROG6   '
+       data >01, sample_browser
+       text 'SAMPLE PROGRAM #6   '
+    
+       text 'PROG144 '
+       data >01, sample_browser
+       text 'SAMPLE PROGRAM #144 '
+    
+       text 'PROG79  '
+       data >01, sample_browser
+       text 'SAMPLE PROGRAM #79  '
+    
+       text 'PROG162 '
+       data >01, sample_browser
+       text 'SAMPLE PROGRAM #162 '
+    
+       text 'PROG13  '
+       data >01, sample_browser
+       text 'SAMPLE PROGRAM #13  '
+    
+       text 'PROG91  '
+       data >01, sample_browser
+       text 'SAMPLE PROGRAM #91  '
+    
+       text 'PROG95  '
+       data >01, sample_browser
+       text 'SAMPLE PROGRAM #95  '
+    
+       text 'PROG152 '
+       data >01, sample_browser
+       text 'SAMPLE PROGRAM #152 '
+    
+       text 'PROG81  '
+       data >01, sample_browser
+       text 'SAMPLE PROGRAM #81  '
+    
+       text 'PROG4   '
+       data >01, sample_browser
+       text 'SAMPLE PROGRAM #4   '
+    
+       text 'PROG49  '
+       data >01, sample_browser
+       text 'SAMPLE PROGRAM #49  '
+    
+       text 'PROG75  '
+       data >01, sample_browser
+       text 'SAMPLE PROGRAM #75  '
+    
+       text 'PROG14  '
+       data >01, sample_browser
+       text 'SAMPLE PROGRAM #14  '
+    
+       text 'PROG121 '
+       data >01, sample_browser
+       text 'SAMPLE PROGRAM #121 '
+    
+       text 'PROG31  '
+       data >01, sample_browser
+       text 'SAMPLE PROGRAM #31  '
+    
+       text 'PROG124 '
+       data >01, sample_browser
+       text 'SAMPLE PROGRAM #124 '
+    
+       text 'PROG135 '
+       data >01, sample_browser
+       text 'SAMPLE PROGRAM #135 '
+    
+       text 'PROG170 '
+       data >01, sample_browser
+       text 'SAMPLE PROGRAM #170 '
+    
+       text 'PROG158 '
+       data >01, sample_browser
+       text 'SAMPLE PROGRAM #158 '
+    
+       text 'PROG24  '
+       data >01, sample_browser
+       text 'SAMPLE PROGRAM #24  '
+    
+       text 'PROG112 '
+       data >01, sample_browser
+       text 'SAMPLE PROGRAM #112 '
+    
+       text 'PROG23  '
+       data >01, sample_browser
+       text 'SAMPLE PROGRAM #23  '
+    
+       text 'PROG165 '
+       data >01, sample_browser
+       text 'SAMPLE PROGRAM #165 '
+    
+       text 'PROG119 '
+       data >01, sample_browser
+       text 'SAMPLE PROGRAM #119 '
+    
+       text 'PROG139 '
+       data >01, sample_browser
+       text 'SAMPLE PROGRAM #139 '
+    
+       text 'PROG51  '
+       data >01, sample_browser
+       text 'SAMPLE PROGRAM #51  '
+    
+       text 'PROG99  '
+       data >01, sample_browser
+       text 'SAMPLE PROGRAM #99  '
+    
+       text 'PROG46  '
+       data >01, sample_browser
+       text 'SAMPLE PROGRAM #46  '
+    
+       text 'PROG118 '
+       data >01, sample_browser
+       text 'SAMPLE PROGRAM #118 '
+    
+       text 'PROG41  '
+       data >01, sample_browser
+       text 'SAMPLE PROGRAM #41  '
+    
+       text 'PROG143 '
+       data >01, sample_browser
+       text 'SAMPLE PROGRAM #143 '
+    
+       text 'PROG11  '
+       data >01, sample_browser
+       text 'SAMPLE PROGRAM #11  '
+    
+       text 'PROG32  '
+       data >01, sample_browser
+       text 'SAMPLE PROGRAM #32  '
+    
+       text 'PROG78  '
+       data >01, sample_browser
+       text 'SAMPLE PROGRAM #78  '
+    
+       text 'PROG117 '
+       data >01, sample_browser
+       text 'SAMPLE PROGRAM #117 '
+    
+       text 'PROG62  '
+       data >01, sample_browser
+       text 'SAMPLE PROGRAM #62  '
+    
+       text 'PROG70  '
+       data >01, sample_browser
+       text 'SAMPLE PROGRAM #70  '
+    
+       text 'PROG53  '
+       data >01, sample_browser
+       text 'SAMPLE PROGRAM #53  '
+    
+       text 'PROG43  '
+       data >01, sample_browser
+       text 'SAMPLE PROGRAM #43  '
+    
+       text 'PROG148 '
+       data >01, sample_browser
+       text 'SAMPLE PROGRAM #148 '
+    
+       text 'PROG80  '
+       data >01, sample_browser
+       text 'SAMPLE PROGRAM #80  '
+    
+       text 'PROG129 '
+       data >01, sample_browser
+       text 'SAMPLE PROGRAM #129 '
+    
+       text 'PROG44  '
+       data >01, sample_browser
+       text 'SAMPLE PROGRAM #44  '
+    
+       text 'PROG127 '
+       data >01, sample_browser
+       text 'SAMPLE PROGRAM #127 '
+    
+       text 'PROG61  '
+       data >01, sample_browser
+       text 'SAMPLE PROGRAM #61  '
+    
+       text 'PROG138 '
+       data >01, sample_browser
+       text 'SAMPLE PROGRAM #138 '
+    
+       text 'PROG38  '
+       data >01, sample_browser
+       text 'SAMPLE PROGRAM #38  '
+    
+       text 'PROG171 '
+       data >01, sample_browser
+       text 'SAMPLE PROGRAM #171 '
+    
+       text 'PROG69  '
+       data >01, sample_browser
+       text 'SAMPLE PROGRAM #69  '
+    
+       text 'PROG153 '
+       data >01, sample_browser
+       text 'SAMPLE PROGRAM #153 '
+    
+       text 'PROG19  '
+       data >01, sample_browser
+       text 'SAMPLE PROGRAM #19  '
+    
+       text 'PROG149 '
+       data >01, sample_browser
+       text 'SAMPLE PROGRAM #149 '
+    
+       text 'PROG136 '
+       data >01, sample_browser
+       text 'SAMPLE PROGRAM #136 '
+    
+       text 'PROG106 '
+       data >01, sample_browser
+       text 'SAMPLE PROGRAM #106 '
+    
+       text 'PROG141 '
+       data >01, sample_browser
+       text 'SAMPLE PROGRAM #141 '
+    
+       text 'PROG128 '
+       data >01, sample_browser
+       text 'SAMPLE PROGRAM #128 '
+    
+       text 'PROG159 '
+       data >01, sample_browser
+       text 'SAMPLE PROGRAM #159 '
+    
+       text 'PROG20  '
+       data >01, sample_browser
+       text 'SAMPLE PROGRAM #20  '
+    
+       text 'PROG22  '
+       data >01, sample_browser
+       text 'SAMPLE PROGRAM #22  '
+    
+       text 'PROG74  '
+       data >01, sample_browser
+       text 'SAMPLE PROGRAM #74  '
+    
+       text 'PROG2   '
+       data >01, sample_browser
+       text 'SAMPLE PROGRAM #2   '
+    
+       text 'PROG125 '
+       data >01, sample_browser
+       text 'SAMPLE PROGRAM #125 '
+    
+       text 'PROG73  '
+       data >01, sample_browser
+       text 'SAMPLE PROGRAM #73  '
+    
+       text 'PROG52  '
+       data >01, sample_browser
+       text 'SAMPLE PROGRAM #52  '
+    
+       text 'PROG83  '
+       data >01, sample_browser
+       text 'SAMPLE PROGRAM #83  '
+    
+       text 'PROG90  '
+       data >01, sample_browser
+       text 'SAMPLE PROGRAM #90  '
+    
+       text 'PROG111 '
+       data >01, sample_browser
+       text 'SAMPLE PROGRAM #111 '
+    
+       text 'PROG68  '
+       data >01, sample_browser
+       text 'SAMPLE PROGRAM #68  '
+    
+       text 'PROG26  '
+       data >01, sample_browser
+       text 'SAMPLE PROGRAM #26  '
+    
+       text 'PROG156 '
+       data >01, sample_browser
+       text 'SAMPLE PROGRAM #156 '
+    
+       text 'PROG12  '
+       data >01, sample_browser
+       text 'SAMPLE PROGRAM #12  '
+    
+       text 'PROG71  '
+       data >01, sample_browser
+       text 'SAMPLE PROGRAM #71  '
+    
+       text 'PROG109 '
+       data >01, sample_browser
+       text 'SAMPLE PROGRAM #109 '
+    
+       text 'PROG160 '
+       data >01, sample_browser
+       text 'SAMPLE PROGRAM #160 '
+    
+       text 'PROG133 '
+       data >01, sample_browser
+       text 'SAMPLE PROGRAM #133 '
+    
+       text 'PROG115 '
+       data >01, sample_browser
+       text 'SAMPLE PROGRAM #115 '
+    
+       text 'PROG132 '
+       data >01, sample_browser
+       text 'SAMPLE PROGRAM #132 '
+    
+       text 'PROG123 '
+       data >01, sample_browser
+       text 'SAMPLE PROGRAM #123 '
+    
+       text 'PROG130 '
+       data >01, sample_browser
+       text 'SAMPLE PROGRAM #130 '
+    
+       text 'PROG86  '
+       data >01, sample_browser
+       text 'SAMPLE PROGRAM #86  '
+    
+       text 'PROG47  '
+       data >01, sample_browser
+       text 'SAMPLE PROGRAM #47  '
+    
+       text 'PROG5   '
+       data >01, sample_browser
+       text 'SAMPLE PROGRAM #5   '
+    
+       text 'PROG168 '
+       data >01, sample_browser
+       text 'SAMPLE PROGRAM #168 '
+    
+       text 'PROG169 '
+       data >01, sample_browser
+       text 'SAMPLE PROGRAM #169 '
+    
+       text 'PROG116 '
+       data >01, sample_browser
+       text 'SAMPLE PROGRAM #116 '
+    
+       text 'PROG164 '
+       data >01, sample_browser
+       text 'SAMPLE PROGRAM #164 '
+    
+       text 'PROG66  '
+       data >01, sample_browser
+       text 'SAMPLE PROGRAM #66  '
+    
+       text 'PROG126 '
+       data >01, sample_browser
+       text 'SAMPLE PROGRAM #126 '
+    
+       text 'PROG154 '
+       data >01, sample_browser
+       text 'SAMPLE PROGRAM #154 '
+    
+       text 'PROG161 '
+       data >01, sample_browser
+       text 'SAMPLE PROGRAM #161 '
+    
+       text 'PROG98  '
+       data >01, sample_browser
+       text 'SAMPLE PROGRAM #98  '
+    
+       text 'PROG60  '
+       data >01, sample_browser
+       text 'SAMPLE PROGRAM #60  '
+    
+       text 'PROG157 '
+       data >01, sample_browser
+       text 'SAMPLE PROGRAM #157 '
+    
+       text 'PROG89  '
+       data >01, sample_browser
+       text 'SAMPLE PROGRAM #89  '
+    
+       text 'PROG146 '
+       data >01, sample_browser
+       text 'SAMPLE PROGRAM #146 '
+    
+       text 'PROG77  '
+       data >01, sample_browser
+       text 'SAMPLE PROGRAM #77  '
+    
+       text 'PROG8   '
+       data >01, sample_browser
+       text 'SAMPLE PROGRAM #8   '
+    
+       text 'PROG85  '
+       data >01, sample_browser
+       text 'SAMPLE PROGRAM #85  '
+    
+       text 'PROG147 '
+       data >01, sample_browser
+       text 'SAMPLE PROGRAM #147 '
+    
+       text 'PROG150 '
+       data >01, sample_browser
+       text 'SAMPLE PROGRAM #150 '
+    
+       text 'PROG34  '
+       data >01, sample_browser
+       text 'SAMPLE PROGRAM #34  '
+    
+       text 'PROG1   '
+       data >01, sample_browser
+       text 'WEIRD NAME (~1low[])'
+    
+       text 'PROG151 '
+       data >01, sample_browser
+       text 'SAMPLE PROGRAM #151 '
+    
+       text 'PROG10  '
+       data >01, sample_browser
+       text 'SAMPLE PROGRAM #10  '
+    
+       text 'PROG76  '
+       data >01, sample_browser
+       text 'SAMPLE PROGRAM #76  '
+    
+       text 'PROG82  '
+       data >01, sample_browser
+       text 'SAMPLE PROGRAM #82  '
+    
+       text 'PROG55  '
+       data >01, sample_browser
+       text 'SAMPLE PROGRAM #55  '
+    
+       text 'PROG104 '
+       data >01, sample_browser
+       text 'SAMPLE PROGRAM #104 '
+    
+       text 'PROG131 '
+       data >01, sample_browser
+       text 'SAMPLE PROGRAM #131 '
+    
+       text 'PROG65  '
+       data >01, sample_browser
+       text 'SAMPLE PROGRAM #65  '
+    
+       text 'PROG103 '
+       data >01, sample_browser
+       text 'SAMPLE PROGRAM #103 '
+    
+       text 'PROG42  '
+       data >01, sample_browser
+       text 'SAMPLE PROGRAM #42  '
+    
+       text 'PROG145 '
+       data >01, sample_browser
+       text 'SAMPLE PROGRAM #145 '
+    
+       text 'PROG72  '
+       data >01, sample_browser
+       text 'SAMPLE PROGRAM #72  '
+    
+       text 'PROG56  '
+       data >01, sample_browser
+       text 'SAMPLE PROGRAM #56  '
+    
+       text 'PROG102 '
+       data >01, sample_browser
+       text 'SAMPLE PROGRAM #102 '
+    
+       text 'PROG87  '
+       data >01, sample_browser
+       text 'SAMPLE PROGRAM #87  '
+    
+       text 'PROG163 '
+       data >01, sample_browser
+       text 'SAMPLE PROGRAM #163 '
+    
+       text 'PROG155 '
+       data >01, sample_browser
+       text 'SAMPLE PROGRAM #155 '
+    
+       text 'PROG88  '
+       data >01, sample_browser
+       text 'SAMPLE PROGRAM #88  '
+    
+       text 'PROG105 '
+       data >01, sample_browser
+       text 'SAMPLE PROGRAM #105 '
+    
+       text 'PROG39  '
+       data >01, sample_browser
+       text 'SAMPLE PROGRAM #39  '
+    
+       text 'PROG142 '
+       data >01, sample_browser
+       text 'SAMPLE PROGRAM #142 '
+    
+       text 'PROG30  '
+       data >01, sample_browser
+       text 'SAMPLE PROGRAM #30  '
+    
+       text 'PROG37  '
+       data >01, sample_browser
+       text 'SAMPLE PROGRAM #37  '
+    
+       text 'PROG113 '
+       data >01, sample_browser
+       text 'SAMPLE PROGRAM #113 '
+    
+       text 'PROG122 '
+       data >01, sample_browser
+       text 'SAMPLE PROGRAM #122 '
+    
+       text 'PROG101 '
+       data >01, sample_browser
+       text 'SAMPLE PROGRAM #101 '
+    
+       text 'PROG28  '
+       data >01, sample_browser
+       text 'SAMPLE PROGRAM #28  '
+    
+       text 'PROG27  '
+       data >01, sample_browser
+       text 'SAMPLE PROGRAM #27  '
+    
+       text 'PROG107 '
+       data >01, sample_browser
+       text 'SAMPLE PROGRAM #107 '
+    
+       text 'PROG35  '
+       data >01, sample_browser
+       text 'SAMPLE PROGRAM #35  '
+    
+       text 'PROG108 '
+       data >01, sample_browser
+       text 'SAMPLE PROGRAM #108 '
+    
+       text 'PROG59  '
+       data >01, sample_browser
+       text 'SAMPLE PROGRAM #59  '
+    
+       text 'PROG16  '
+       data >01, sample_browser
+       text 'SAMPLE PROGRAM #16  '
+    
+       text 'PROG93  '
+       data >01, sample_browser
+       text 'SAMPLE PROGRAM #93  '
+    
+       text 'PROG18  '
+       data >01, sample_browser
+       text 'SAMPLE PROGRAM #18  '
+    
+       text 'PROG97  '
+       data >01, sample_browser
+       text 'SAMPLE PROGRAM #97  '
+    
+       text 'PROG7   '
+       data >01, sample_browser
+       text 'SAMPLE PROGRAM #7   '
+    
+       text 'PROG21  '
+       data >01, sample_browser
+       text 'SAMPLE PROGRAM #21  '
+    
+       text 'PROG64  '
+       data >01, sample_browser
+       text 'SAMPLE PROGRAM #64  '
+    
+       text 'PROG94  '
+       data >01, sample_browser
+       text 'SAMPLE PROGRAM #94  '
+    
+       text 'PROG40  '
+       data >01, sample_browser
+       text 'SAMPLE PROGRAM #40  '
+    
+       text 'PROG48  '
+       data >01, sample_browser
+       text 'SAMPLE PROGRAM #48  '
+    
+       text 'PROG96  '
+       data >01, sample_browser
+       text 'SAMPLE PROGRAM #96  '
+    
+       text 'PROG137 '
+       data >01, sample_browser
+       text 'SAMPLE PROGRAM #137 '
+    
+       text 'PROG33  '
+       data >01, sample_browser
+       text 'SAMPLE PROGRAM #33  '
+    
+       text 'PROG100 '
+       data >01, sample_browser
+       text 'SAMPLE PROGRAM #100 '
+    
+       text 'PROG3   '
+       data >01, sample_browser
+       text 'SAMPLE PROGRAM #3   '
+    
+       text 'PROG84  '
+       data >01, sample_browser
+       text 'SAMPLE PROGRAM #84  '
+    data 0, 0, 0, 0, 0, 0, 0

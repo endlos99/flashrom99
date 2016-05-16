@@ -1,0 +1,149 @@
+* image with 4 entries
+
+ws:
+       equ  >83e0
+ws_r0lb:
+       equ  ws + 1
+ws_r1:
+       equ  ws + 2
+
+
+       aorg >6000, 0
+
+       data >aa01
+       data >0000
+       data >0000
+       data entry1
+       data >0000
+       data >0000
+       data 0
+       data 0
+
+entry1:
+       data entry2
+       data main1
+       byte 8
+       text 'ITEM #A1'
+entry2:
+       data entry3
+       data main2
+       byte 8
+       text 'ITEM #A2'
+entry3:
+       data entry4
+       data main3
+       byte 8
+       text 'ITEM #A3'
+entry4:
+       data entry5
+       data main4
+       byte 8
+       text 'ITEM #A4'
+entry5:
+       data 0
+       data main5
+       byte 8
+       text 'ITEM #A5'
+
+main:
+       mov  @prog, @>8300
+       mov  @prog+2, @>8302
+       mov  @prog+4, @>8304
+       mov  @prog+6, @>8306
+       b    @>8300
+
+prog:
+       clr  @>6002  ; switch banks
+       b    @main
+
+main1:
+       limi 0
+       li   r1, entry1
+       jmp  main
+main2:
+       limi 0
+       li   r1, entry2
+       jmp  main
+main3:
+       limi 0
+       li   r1, entry3
+       jmp  main
+main4:
+       limi 0
+       li   r1, entry4
+       jmp  main
+main5:
+       limi 0
+       li   r1, entry5
+       jmp  main
+
+
+**************************************************
+       
+       aorg >6000, 1
+
+       data >aa01
+       data >0000
+       data >0000
+       data entryx
+       data >0000
+       data >0000
+       data 0
+       data 0
+
+entry1x:
+       data 0
+       data 0
+       byte 8
+       text 'ITEM #X1'
+entry2x:
+       data 0
+       data 0
+       byte 8
+       text 'ITEM #X2'
+entry3x:
+       data 0
+       data 0
+       byte 8
+       text 'ITEM #X3'
+entry4x:
+       data 0
+       data 0
+       byte 8
+       text 'ITEM #X4'
+entry5x:
+       data 0
+       data 0
+       byte 8
+       text 'ITEM #X5'
+
+showx:
+       li   r0, 2
+       inct r1
+       inct r1
+       movb *r1+, r2
+       srl  r2, 8
+       bl   @vmbw
+
+       limi 2
+       jmp  $
+       
+entryx:
+       data 0
+       data mainx
+       byte 8
+textx:
+       text 'BAD ITEM'
+
+mainx:
+       li   r0, 2
+       li   r1, textx
+       li   r2, 8
+       bl   @vmbw
+
+       limi 2
+       jmp  $
+       
+       copy "vmbw.a99"
+       
+       end

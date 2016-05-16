@@ -1,0 +1,64 @@
+* image with 3 entries
+
+ws:
+       equ  >8300
+ws_r0lb:
+       equ  ws + 1
+ws_r1:
+       equ  ws + 2
+
+
+       aorg >6000
+
+       data >aa01
+       data >0000
+       data >0000
+       data entry1
+       data >0000
+       data >0000
+       data 0
+       data 0
+
+entry1:
+       data entry2
+       data main1
+       byte 7
+       text 'ITEM #1'
+entry2:
+       data entry3
+       data main2
+       byte 7
+       text 'ITEM #2'
+entry3:
+       data 0
+       data main3
+       byte 7
+       text 'ITEM #3'
+
+main:
+       li   r0, 2
+       inct r1
+       inct r1
+       inc  r1
+       li   r2, 7
+       bl   @vmbw
+
+       limi 2
+       jmp  $
+
+main1:
+       limi 0
+       li   r1, entry1
+       jmp  main
+main2:
+       limi 0
+       li   r1, entry2
+       jmp  main
+main3:
+       limi 0
+       li   r1, entry3
+       jmp  main
+
+       copy "vmbw.a99"
+       
+       end
