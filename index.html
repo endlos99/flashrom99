@@ -212,6 +212,11 @@ the TI 99 boot menu, or have difficulties to deal with the remnants of
 previously run programs left over by a warm reset.  In rare cases, this may
 lead to graphical glitches or other unexpected behavior.</p>
 
+<p>Programs that read from or write to disk also may not work correctly.  Right
+now this seems to affect only some systems, and mostly those with the
+original TI floppy disk controller.  This issue is currently under
+investigation.</p>
+
 <p>Please refer to the troubleshooting section for a list of games known with
 issues.</p>
 
@@ -328,9 +333,13 @@ only image on the SD card so that it is loaded directly.</p>
 further analysis.</p>
 
 <h4>
-<a id="games-with-known-issues" class="anchor" href="#games-with-known-issues" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Games with known issues.</h4>
+<a id="programs-with-known-issues" class="anchor" href="#programs-with-known-issues" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Programs with known issues.</h4>
 
-<p>These programs are know to have some flaws when run on the FlashROM 99:</p>
+<p>All programs that read from or write to disk such as Console Writer,
+fbForth, or 4A/DOS, may not work correctly, depending on your disk
+controller.</p>
+
+<p>These programs are known to have some flaws when run on the FlashROM 99:</p>
 
 <ul>
 <li>Console Writer: Input line shows dotted pattern.</li>
