@@ -188,6 +188,11 @@ the TI 99 boot menu, or have difficulties to deal with the remnants of
 previously run programs left over by a warm reset.  In rare cases, this may
 lead to graphical glitches or other unexpected behavior.
 
+Programs that read from or write to disk also may not work correctly.  Right
+now this seems to affect only some systems, and mostly those with the
+original TI floppy disk controller.  This issue is currently under
+investigation.
+
 Please refer to the troubleshooting section for a list of games known with
 issues.
 
@@ -298,13 +303,16 @@ only image on the SD card so that it is loaded directly.
 If this doesn't help, please send a note to the developer at <r@0x01.de> for
 further analysis.
 
-#### Games with known issues.
+#### Programs with known issues.
 
-These programs are know to have some flaws when run on the FlashROM 99:
+All programs that read from or write to disk such as Console Writer,
+fbForth, or 4A/DOS, may not work correctly, depending on your disk
+controller.
+
+These programs are known to have some flaws when run on the FlashROM 99:
 
 - Console Writer: Input line shows dotted pattern.
 - Miner 2049er: Crashes spectacularly.  Freezes when loaded directly.
-- Sudoku: Crashes, also when loaded directly.
 
 Note that for now, this list refers to particular images tested.  There
 might be different images of those programs that work.

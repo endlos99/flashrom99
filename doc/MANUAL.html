@@ -142,6 +142,10 @@ expansion.</p>
 the TI 99 boot menu, or have difficulties to deal with the remnants of
 previously run programs left over by a warm reset.  In rare cases, this may
 lead to graphical glitches or other unexpected behavior.</p>
+<p>Programs that read from or write to disk also may not work correctly.  Right
+now this seems to affect only some systems, and mostly those with the
+original TI floppy disk controller.  This issue is currently under
+investigation.</p>
 <p>Please refer to the troubleshooting section for a list of games known with
 issues.</p>
 <p>If you find additional images that doesn't work as intended on the FlashROM
@@ -218,12 +222,14 @@ menu again to eliminate most issues.  Alternatively, put the image as the
 only image on the SD card so that it is loaded directly.</p>
 <p>If this doesn't help, please send a note to the developer at <a href="&#109;&#97;&#105;&#108;&#116;&#111;&#58;&#114;&#64;&#48;&#120;&#48;&#49;&#46;&#100;&#101;">&#114;&#64;&#48;&#120;&#48;&#49;&#46;&#100;&#101;</a> for
 further analysis.</p>
-<h4>Games with known issues.</h4>
-<p>These programs are know to have some flaws when run on the FlashROM 99:</p>
+<h4>Programs with known issues.</h4>
+<p>All programs that read from or write to disk such as Console Writer,
+fbForth, or 4A/DOS, may not work correctly, depending on your disk
+controller.</p>
+<p>These programs are known to have some flaws when run on the FlashROM 99:</p>
 <ul>
 <li>Console Writer: Input line shows dotted pattern.</li>
 <li>Miner 2049er: Crashes spectacularly.  Freezes when loaded directly.</li>
-<li>Sudoku: Crashes, also when loaded directly.</li>
 </ul>
 <p>Note that for now, this list refers to particular images tested.  There
 might be different images of those programs that work.</p>
