@@ -142,13 +142,13 @@ expansion.</p>
 the TI 99 boot menu, or have difficulties to deal with the remnants of
 previously run programs left over by a warm reset.  In rare cases, this may
 lead to graphical glitches or other unexpected behavior.</p>
-<p>Programs that read from or write to disk also may not work correctly.  Right
-now this seems to affect only some systems, and mostly those with the
-original TI floppy disk controller.  This issue is currently under
-investigation.</p>
 <p>Please refer to the troubleshooting section for a list of games known with
 issues.</p>
-<p>If you find additional images that doesn't work as intended on the FlashROM
+<p>For cartridges using a Revision 1 board, programs that access disk drives
+may not work correctly on some systems, in particular with the original TI
+floppy disk controller.  Please check <a href="R1DISKFIX.md"><code>R1DISKFIX.md</code></a> for an
+easy hardware fix.  Note that Revision 2 boards are not affected.</p>
+<p>If you find additional images that don't work as intended on the FlashROM
 99, please send a note to the developer at <a href="&#109;&#97;&#105;&#108;&#116;&#111;&#58;&#114;&#64;&#48;&#120;&#48;&#49;&#46;&#100;&#101;">&#114;&#64;&#48;&#120;&#48;&#49;&#46;&#100;&#101;</a>, maybe the issue can
 be fixed with a software update for the 8515.</p>
 <h2>How the FlashROM 99 Works</h2>
@@ -177,6 +177,16 @@ When the cart if offline, this yields value <code>0000</code>, but as soon as th
 goes back online the TI 99 will see the GPL header <code>AAxx</code> and jump to the
 loaded image.</p>
 <h2>Troubleshooting the FlashROM 99</h2>
+<p>If something isn't working as it should, please try the official test program
+first.</p>
+<p>Copy <a href="/images/banktest.bin"><code>BANKTEST.BIN</code></a> as single file onto an SD card and
+power up your TI 99 with the FlashROM 99.  Wait for the LED to turn off, then
+press any key to bring up the TI menu.</p>
+<p>In the menu, you should see an entry for <code>BANK TEST /x</code>.  Select the bank test
+to see this screen:</p>
+<p><img alt="Bank Test Result" src="banktest.png" /></p>
+<p>If the bank test doesn't work for you please check the following list for
+some suggestions.</p>
 <h4>The TI 99 title screen won't show.</h4>
 <p>The TI 99 detects the FlashROM 99, but it cannot access the RAM contents.</p>
 <p>Check if the 541s are mounted correctly -- two are upside down.  Also look
@@ -220,12 +230,11 @@ other unexpected behavior.</p>
 <p>Try restarting the program by pressing <code>FCTN-=</code> and selecting it from the
 menu again to eliminate most issues.  Alternatively, put the image as the
 only image on the SD card so that it is loaded directly.</p>
+<p>If your program has difficulties reading from or writing to floppy disks,
+please see <a href="R1DISKFIX.md"><code>R1DISKFIX.md</code></a> for a possible solution.</p>
 <p>If this doesn't help, please send a note to the developer at <a href="&#109;&#97;&#105;&#108;&#116;&#111;&#58;&#114;&#64;&#48;&#120;&#48;&#49;&#46;&#100;&#101;">&#114;&#64;&#48;&#120;&#48;&#49;&#46;&#100;&#101;</a> for
 further analysis.</p>
 <h4>Programs with known issues.</h4>
-<p>All programs that read from or write to disk such as Console Writer,
-fbForth, or 4A/DOS, may not work correctly, depending on your disk
-controller.</p>
 <p>These programs are known to have some flaws when run on the FlashROM 99:</p>
 <ul>
 <li>Console Writer: Input line shows dotted pattern.</li>

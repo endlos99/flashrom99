@@ -73,7 +73,8 @@ To assemble the FlashROM 99 you need the following components:
 - 6x 100 nF capacitors (e.g., multi-layer ceramic X7R, no electrolytic!)
 - 1x 1 nF capacitor (e.g., multi-layer ceramic X7R, no electrolytic!)
 - 1x 68 Ohm resistor
-- 1x 470 Ohm resistor
+- 1x 330-470 Ohm resistor (depending on LED used, smaller values will be
+     brighter)
 - 1x 10 kOhm resistor
 - 1x LED (e.g., 5 mm red or yellow)
 - 1x micro push button
@@ -117,6 +118,21 @@ modules have a crooked connector, though, so that a small gap may remain.
 
 If you don't want to build the board yourself feel free to contact the
 developer for available sources.
+
+
+#### Previous Versions
+
+Revision 1 of the board has a small issue that results in unreliable disk
+access on some, but not all, systems, mostly with an original TI floppy disk
+controller.
+
+If you own a Revision 1 board *and* experience problems running images that
+access the disk drives please see [`doc/R1DISKFIX.md`](doc/R1DISKFIX.md) for
+an easy fix.
+
+Note that the potential disk issue has been fixed in Revision 2 of the
+board.  The fix basically converts a Revision 1 board into a Revision 2
+board.
 
 
 ### Software

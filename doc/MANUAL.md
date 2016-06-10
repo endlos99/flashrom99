@@ -188,15 +188,15 @@ the TI 99 boot menu, or have difficulties to deal with the remnants of
 previously run programs left over by a warm reset.  In rare cases, this may
 lead to graphical glitches or other unexpected behavior.
 
-Programs that read from or write to disk also may not work correctly.  Right
-now this seems to affect only some systems, and mostly those with the
-original TI floppy disk controller.  This issue is currently under
-investigation.
-
 Please refer to the troubleshooting section for a list of games known with
 issues.
 
-If you find additional images that doesn't work as intended on the FlashROM
+For cartridges using a Revision 1 board, programs that access disk drives
+may not work correctly on some systems, in particular with the original TI
+floppy disk controller.  Please check [`R1DISKFIX.md`](R1DISKFIX.md) for an
+easy hardware fix.  Note that Revision 2 boards are not affected.
+
+If you find additional images that don't work as intended on the FlashROM
 99, please send a note to the developer at <r@0x01.de>, maybe the issue can
 be fixed with a software update for the 8515.
 
@@ -237,6 +237,22 @@ loaded image.
 
 Troubleshooting the FlashROM 99
 -------------------------------
+
+If something isn't working as it should, please try the official test program
+first.
+
+Copy [`BANKTEST.BIN`](/images/banktest.bin) as single file onto an SD card and
+power up your TI 99 with the FlashROM 99.  Wait for the LED to turn off, then
+press any key to bring up the TI menu.
+
+In the menu, you should see an entry for `BANK TEST /x`.  Select the bank test
+to see this screen:
+
+![Bank Test Result](banktest.png)
+
+If the bank test doesn't work for you please check the following list for
+some suggestions.
+
 
 #### The TI 99 title screen won't show.
 
@@ -300,14 +316,13 @@ Try restarting the program by pressing `FCTN-=` and selecting it from the
 menu again to eliminate most issues.  Alternatively, put the image as the
 only image on the SD card so that it is loaded directly.
 
+If your program has difficulties reading from or writing to floppy disks,
+please see [`R1DISKFIX.md`](R1DISKFIX.md) for a possible solution.
+
 If this doesn't help, please send a note to the developer at <r@0x01.de> for
 further analysis.
 
 #### Programs with known issues.
-
-All programs that read from or write to disk such as Console Writer,
-fbForth, or 4A/DOS, may not work correctly, depending on your disk
-controller.
 
 These programs are known to have some flaws when run on the FlashROM 99:
 

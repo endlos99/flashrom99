@@ -1,0 +1,42 @@
+<style>
+body { font-family: 'Liberation Sans', Helvetica, Calibri, sans-serif; padding: 1em; margin: auto; max-width: 60em; background: #fefefe; }
+p, ul, ol, pre { margin: 1em 0; line-height: 1.3em; }
+pre { border: 1px solid #ccc; border-radius: 3px; overflow: auto; padding: 6px 10px; background-color: #eee; }
+code { border: 1px solid #ccc; border-radius: 3px; margin: 0 2px; padding: 0 2px; background-color: #eee; }
+pre > code { border: 0; margin: 0; padding: 0; }
+a, a:visited { color: #11a; text-decoration: none; }
+</style>
+<h1>Fixing Disk Issues for Revision 1 Boards</h1>
+<p>Revision 1 of the FlashROM 99 board had a small issue that resulted in
+unreliable disk access on some, but not all systems with certain disk
+controllers.</p>
+<p>This document describes a simple fix that converts a Revision 1 board
+into a Revision 2 board that fixes the disk issue for all systems.</p>
+<p><em>IMPORTANT:</em> Make sure you have a Revision 1 board by checking the lower
+right-hand side of your cartridge board first!</p>
+<h2>Fix Assembled Cartridges</h2>
+<p>Turn over your Revision 1 board and locate the traces that connect the
+capacitor to the resistor.  You basically need to connect the end of the
+capacitor that is connected to the resistor to the <em>other</em> end of the
+resistor.</p>
+<p><img alt="Trace Fix" src="r1diskfix1.jpg" /></p>
+<p>Fortunately, this is easily done: First, use an exacto knife to cut the
+trace marked by the red line.  When done, use a volt meter to verify that
+the connection has been severed.  Second, solder a short wire between the
+pins marked by the yellow line.</p>
+<p>These two steps will fix the flaky disk access of your Revision 1 board.</p>
+<h2>Fix New PCBs</h2>
+<p>If you haven't assembled your cartridge yet there's an alternative to
+cutting traces, but either method will work.</p>
+<p>Assemble the board as usual, except for the 1 nF capacitor.  Connect one
+wire of the capacitor to its regular terminal, but connect the other wire to
+the resistor instead.</p>
+<p><img alt="Placement Fix" src="r1diskfix2.png" /></p>
+<p>If you find it difficult to connect the capacitor to the resistor you may
+also put either component on the backside of the cart.</p>
+<p>This placement will prevent flaky disk access for your Revision 1 board.</p>
+<h2>Note</h2>
+<p>You do not need to perform either modification if you don't use programs
+that access the disk drives, or if you do not experience any issues on your
+already assembled board!</p>
+<p>Thanks go to Jim Fetzner for pointing out the flawed wiring in Revision 1.</p>
