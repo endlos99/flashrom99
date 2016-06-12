@@ -2,21 +2,24 @@ Fixing Disk Issues for Revision 1 Boards
 ========================================
 
 
-Revision 1 of the FlashROM 99 board had a small issue that resulted in
-unreliable disk access on some, but not all systems with certain disk
+Revision 1 (and 1a) of the FlashROM 99 board has a small issue that results
+in unreliable disk access on some, but not all systems with certain disk
 controllers.
 
-This document describes a simple fix that converts a Revision 1 board
+This document describes a simple fix that converts a Revision 1/1a board
 into a Revision 2 board that fixes the disk issue for all systems.
 
-*IMPORTANT:* Make sure you have a Revision 1 board by checking the lower
+*IMPORTANT:* Make sure you have a Revision 1/1a board by checking the lower
 right-hand side of your cartridge board first!
 
+Also note that a fixed Revision 1/1a board is identical to a Revision 2
+board.  There is no need to exchange boards or carts.
 
-Fix Assembled Cartridges
-------------------------
 
-Turn over your Revision 1 board and locate the traces that connect the
+Method 1: Cut Trace
+-------------------
+
+Turn over your Revision 1/1a board and locate the traces that connect the
 capacitor to the resistor.  You basically need to connect the end of the
 capacitor that is connected to the resistor to the *other* end of the
 resistor.
@@ -28,32 +31,35 @@ trace marked by the red line.  When done, use a volt meter to verify that
 the connection has been severed.  Second, solder a short wire between the
 pins marked by the yellow line.
 
-These two steps will fix the flaky disk access of your Revision 1 board.
+Method 1 is particularly suited for assembled boards, although method 2 will
+work just as well.
 
 
-Fix New PCBs
-------------
+Method 2: Rotate Capacitor
+--------------------------
 
-If you haven't assembled your cartridge yet there's an alternative to
-cutting traces, but either method will work.
+Locate the position of the 1 nF capacitor capacitor on the board.  Instead
+of placing the capacitor as indicated, connect one wire to the resistor
+instead.
 
-Assemble the board as usual, except for the 1 nF capacitor.  Connect one
-wire of the capacitor to its regular terminal, but connect the other wire to
-the resistor instead.
+![Placement Fix](r1diskfix2.jpg)
 
-![Placement Fix](r1diskfix2.png)
+Connect one wire of the capacitor to its regular, lower terminal, but
+connect the other wire to the resistor instead.  The upper terminal of the
+capacitor must not be connected.
 
 If you find it difficult to connect the capacitor to the resistor you may
 also put either component on the backside of the cart.
 
-This placement will prevent flaky disk access for your Revision 1 board.
+Method 2 is particularly suited for bare boards that are about to be
+assembled, although method 1 will work just as well.
 
 
 Note
 ----
 
 You do not need to perform either modification if you don't use programs
-that access the disk drives, or if you do not experience any issues on your
-already assembled board!
+that access the disk drives, or if you do not experience any issues with
+your already assembled board.
 
 Thanks go to Jim Fetzner for pointing out the flawed wiring in Revision 1.
