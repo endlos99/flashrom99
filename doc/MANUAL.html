@@ -144,10 +144,10 @@ previously run programs left over by a warm reset.  In rare cases, this may
 lead to graphical glitches or other unexpected behavior.</p>
 <p>Please refer to the troubleshooting section for a list of games known with
 issues.</p>
-<p>For cartridges using a Revision 1 board, programs that access disk drives
-may not work correctly on some systems, in particular with the original TI
-floppy disk controller.  Please check <a href="R1DISKFIX.md"><code>R1DISKFIX.md</code></a> for an
-easy hardware fix.  Note that Revision 2 boards are not affected.</p>
+<p>On some early cartridges, programs that access disk drives may not work
+correctly on some systems, in particular with the original TI floppy disk
+controller.  Please check <a href="../README.md"><code>README.md</code></a> to see if you need to
+remove a capacitor from the board.</p>
 <p>If you find additional images that don't work as intended on the FlashROM
 99, please send a note to the developer at <a href="&#109;&#97;&#105;&#108;&#116;&#111;&#58;&#114;&#64;&#48;&#120;&#48;&#49;&#46;&#100;&#101;">&#114;&#64;&#48;&#120;&#48;&#49;&#46;&#100;&#101;</a>, maybe the issue can
 be fixed with a software update for the 8515.</p>
@@ -230,15 +230,12 @@ other unexpected behavior.</p>
 <p>Try restarting the program by pressing <code>FCTN-=</code> and selecting it from the
 menu again to eliminate most issues.  Alternatively, put the image as the
 only image on the SD card so that it is loaded directly.</p>
-<p>If your program has difficulties reading from or writing to floppy disks,
-please see <a href="R1DISKFIX.md"><code>R1DISKFIX.md</code></a> for a possible solution.</p>
 <p>If this doesn't help, please send a note to the developer at <a href="&#109;&#97;&#105;&#108;&#116;&#111;&#58;&#114;&#64;&#48;&#120;&#48;&#49;&#46;&#100;&#101;">&#114;&#64;&#48;&#120;&#48;&#49;&#46;&#100;&#101;</a> for
 further analysis.</p>
 <h4>Programs with known issues.</h4>
 <p>These programs are known to have some flaws when run on the FlashROM 99:</p>
 <ul>
 <li>Console Writer: Input line shows dotted pattern.</li>
-<li>Miner 2049er: Crashes spectacularly.  Freezes when loaded directly.</li>
 </ul>
 <p>Note that for now, this list refers to particular images tested.  There
 might be different images of those programs that work.</p>

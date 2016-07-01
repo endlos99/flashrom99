@@ -71,7 +71,6 @@ To assemble the FlashROM 99 you need the following components:
 - 1x 74HCT377 (LS may also work, but untested)
 - 3x 74HCT541 (LS may also work, but untested)
 - 6x 100 nF capacitors (e.g., multi-layer ceramic X7R, no electrolytic!)
-- 1x 1 nF capacitor (e.g., multi-layer ceramic X7R, no electrolytic!)
 - 1x 68 Ohm resistor
 - 1x 330-470 Ohm resistor (depending on LED used, smaller values will be
      brighter)
@@ -96,6 +95,9 @@ Ohm resistor if you choose anything other than red or yellow.
 The push button is used to reset the board and will be pushed frequently.
 You might choose an angled button if you prefer to push horizontally instead
 of vertically.  This will also put less stress on the cart connector.
+
+If the board shows connectors for a 1 nF capacitor next to the 62256, do
+*not* put this capacitor there, but leave the connectors empty.
 
 When assembling the board make sure to place all ICs properly oriented --
 some ICs are upside down!  On the board, the location of pin 1 is indicated
@@ -122,17 +124,16 @@ developer for available sources.
 
 #### Previous Versions
 
-Revision 1 of the board has a small issue that results in unreliable disk
-access on some, but not all, systems, mostly with an original TI floppy disk
-controller.
+Early versions of the FlashROM 99 used an additional 1 nF capacitor that
+resulted in unreliable disk access on some, but not all systems with certain
+disk controllers.
 
-If you own a Revision 1 board *and* experience problems running images that
-access the disk drives please see [`doc/R1DISKFIX.md`](doc/R1DISKFIX.md) for
-an easy fix.
+Please check to see if the 1 nF capacitor is present on your board.  If so,
+simply remove it by desoldering or clipping its wires to improve the
+stability of your cart.
 
-Note that the potential disk issue has been fixed in Revision 2 of the
-board.  The fix basically converts a Revision 1 board into a Revision 2
-board.
+If you applied a so-called "disk fix" to your board in the past, you don't
+need to undo those changes when removing the capacitor.
 
 
 ### Software

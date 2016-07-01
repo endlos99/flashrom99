@@ -10,7 +10,7 @@ a, a:visited { color: #11a; text-decoration: none; }
 <p>The <em>TI 99/4A Flash ROM Cartridge</em>, or FlashROM 99 for short, is a cartridge
 for the TI 99/4A home computer that allows for running ROM cartridge images
 stored on an SD card.</p>
-<p><img alt="The FlashROM 99 Cartridge" src="/doc/flashrom99.jpg" /></p>
+<p><img alt="The FlashROM 99 Cartridge" src="flashrom99.jpg" /></p>
 <p>The FlashROM 99 supports ROM-only images of up to 32K that use the
 write-to-<code>&gt;60xx</code> bank switching scheme.  It will not work with programs
 using GROMs or CRU-based bank switching.  The cartridge does not require the
@@ -31,7 +31,7 @@ images found on the SD card.  If the SD card contains more than 8 images, a
 <code>FLASHROM 99</code> entry is shown instead.  Selecting this entry starts an image
 browser where you can page through the list of available images with <code>,</code>,
 <code>.</code>, <code>SPACE</code>, and number keys.</p>
-<p><img alt="Image selection" src="/doc/selection.png" /></p>
+<p><img alt="Image selection" src="selection.png" /></p>
 <p>Select the image you want to run.  The screen will show a loader animation
 while the image loads.  Once the image has been loaded, it will run
 automatically.  The SD card is now no longer required and may be removed.</p>
@@ -55,7 +55,6 @@ sources required to build the FlashROM 99.</p>
 <li>1x 74HCT377 (LS may also work, but untested)</li>
 <li>3x 74HCT541 (LS may also work, but untested)</li>
 <li>6x 100 nF capacitors (e.g., multi-layer ceramic X7R, no electrolytic!)</li>
-<li>1x 1 nF capacitor (e.g., multi-layer ceramic X7R, no electrolytic!)</li>
 <li>1x 68 Ohm resistor</li>
 <li>1x 330-470 Ohm resistor (depending on LED used, smaller values will be
      brighter)</li>
@@ -77,32 +76,33 @@ Ohm resistor if you choose anything other than red or yellow.</p>
 <p>The push button is used to reset the board and will be pushed frequently.
 You might choose an angled button if you prefer to push horizontally instead
 of vertically.  This will also put less stress on the cart connector.</p>
+<p>If the board shows connectors for a 1 nF capacitor next to the 62256, do
+<em>not</em> put this capacitor there, but leave the connectors empty.</p>
 <p>When assembling the board make sure to place all ICs properly oriented --
 some ICs are upside down!  On the board, the location of pin 1 is indicated
 by a small line in the IC outline.  Socketing the ATmega allows for future
 software updates.  It is best not to socket the 541s, however, as this will
 make inserting the assembled cart into the TI 99 more difficult.</p>
-<p><img alt="Parts Placement" src="/doc/placement.jpg" /></p>
+<p><img alt="Parts Placement" src="placement.jpg" /></p>
 <p>The push button is best soldered to the top of the board so that the bottom
 area remains as smooth as possible.  After the button is soldered, put some
 insulating tape on its bottom contacts to avoid interference with the SD
 module.</p>
-<p><img alt="Assembly" src="/doc/assembly.jpg" /></p>
+<p><img alt="Assembly" src="assembly.jpg" /></p>
 <p>Insert the SD module from the bottom and solder either one row of connectors
 top so that the metal part of the module is flush with the board.  Some SD
 modules have a crooked connector, though, so that a small gap may remain.</p>
 <p>If you don't want to build the board yourself feel free to contact the
 developer for available sources.</p>
 <h4>Previous Versions</h4>
-<p>Revision 1 of the board has a small issue that results in unreliable disk
-access on some, but not all, systems, mostly with an original TI floppy disk
-controller.</p>
-<p>If you own a Revision 1 board <em>and</em> experience problems running images that
-access the disk drives please see <a href="doc/R1DISKFIX.md"><code>doc/R1DISKFIX.md</code></a> for
-an easy fix.</p>
-<p>Note that the potential disk issue has been fixed in Revision 2 of the
-board.  The fix basically converts a Revision 1 board into a Revision 2
-board.</p>
+<p>Early versions of the FlashROM 99 used an additional 1 nF capacitor that
+resulted in unreliable disk access on some, but not all systems with certain
+disk controllers.</p>
+<p>Please check to see if the 1 nF capacitor is present on your board.  If so,
+simply remove it by desoldering or clipping its wires to improve the
+stability of your cart.</p>
+<p>If you applied a so-called "disk fix" to your board in the past, you don't
+need to undo those changes when removing the capacitor.</p>
 <h3>Software</h3>
 <p>The software for the ATmega 8515 consists of two components.  The <code>avr/</code>
 folder contains the microcontroller logic for accessing the SD card, filling

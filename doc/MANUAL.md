@@ -191,10 +191,10 @@ lead to graphical glitches or other unexpected behavior.
 Please refer to the troubleshooting section for a list of games known with
 issues.
 
-For cartridges using a Revision 1 board, programs that access disk drives
-may not work correctly on some systems, in particular with the original TI
-floppy disk controller.  Please check [`R1DISKFIX.md`](R1DISKFIX.md) for an
-easy hardware fix.  Note that Revision 2 boards are not affected.
+On some early cartridges, programs that access disk drives may not work
+correctly on some systems, in particular with the original TI floppy disk
+controller.  Please check [`README.md`](../README.md) to see if you need to
+remove a capacitor from the board.
 
 If you find additional images that don't work as intended on the FlashROM
 99, please send a note to the developer at <r@0x01.de>, maybe the issue can
@@ -316,9 +316,6 @@ Try restarting the program by pressing `FCTN-=` and selecting it from the
 menu again to eliminate most issues.  Alternatively, put the image as the
 only image on the SD card so that it is loaded directly.
 
-If your program has difficulties reading from or writing to floppy disks,
-please see [`R1DISKFIX.md`](R1DISKFIX.md) for a possible solution.
-
 If this doesn't help, please send a note to the developer at <r@0x01.de> for
 further analysis.
 
@@ -327,7 +324,6 @@ further analysis.
 These programs are known to have some flaws when run on the FlashROM 99:
 
 - Console Writer: Input line shows dotted pattern.
-- Miner 2049er: Crashes spectacularly.  Freezes when loaded directly.
 
 Note that for now, this list refers to particular images tested.  There
 might be different images of those programs that work.
