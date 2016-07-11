@@ -96,8 +96,8 @@ The push button is used to reset the board and will be pushed frequently.
 You might choose an angled button if you prefer to push horizontally instead
 of vertically.  This will also put less stress on the cart connector.
 
-If the board shows connectors for a 1 nF capacitor next to the 62256, do
-*not* put this capacitor there, but leave the connectors empty.
+If the board shows connectors for a 1 nF capacitor next to the 377, do *not*
+put this capacitor there, but leave the connectors empty.
 
 When assembling the board make sure to place all ICs properly oriented --
 some ICs are upside down!  On the board, the location of pin 1 is indicated
