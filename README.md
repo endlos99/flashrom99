@@ -187,8 +187,8 @@ Finally, make sure that the bootloader is disabled by checking if higher
 fuse bits `BOOTSZ1`, `BOOTSZ0`, and `BOOTRSET` are all set to `1`.  This
 should be the default for new 8515s.
 
-In the end, the lower, higher, and extended fuse bytes should have values
-`E4`, `FF`, and `D9`, respectively.
+In the end, the lower and higher fuse bytes should have values `E4` and
+`D9`, respectively.
 
 
 About the Project
