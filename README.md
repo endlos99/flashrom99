@@ -215,7 +215,7 @@ developer at <r@0x01.de>.  Discussions about the FlashROM 99 happen over at
 [3]: https://endlos99.github.io/xdt99
 [4]: http://www.ohwr.org/projects/cernohl/wiki
 [5]: http://www.gnu.org/licenses/gpl.html
-[6]: http://kicad-pcb.org
+[6]: http://kicad.org
 [7]: http://www.nongnu.org/avrdude/
 [8]: http://elm-chan.org/fsw/ff/00index_p.html
 [9]: http://atariage.com/forums/topic/250540-flash-rom-cart
